@@ -13,3 +13,7 @@ def receipt(request):
     return render(request,'receipt.html')
 def journal(request):
     return render(request,'journal.html')
+def creditnote(request):
+    return render(request,'creditnote.html')
+def debitnote(request):
+    return render(request,'debitnote.html')
