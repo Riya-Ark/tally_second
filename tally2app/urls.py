@@ -10,7 +10,8 @@ urlpatterns = [
     path('creditnote',views.creditnote,name='creditnote'),
     path('debitnote',views.debitnote,name='debitnote'),
     # path('editcontra',views.editcontra,name='editcontra'),
-    # path('editpayment',views.editpayment,name='editpayment'),
+    path('editpayment/<int:pk>',views.editpayment,name='editpayment'),
+    path('createvoucher',views.createvoucher,name='createvoucher'),
     
     
 

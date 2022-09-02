@@ -17,3 +17,9 @@ def creditnote(request):
     return render(request,'creditnote.html')
 def debitnote(request):
     return render(request,'debitnote.html')
+def editcontra(request):
+    return render(request,'editcontra.html')
+def editpayment(request):
+    return render(request,'editpayment.html')
+def createvoucher(request):
+    return render(request,'createvoucher.html')

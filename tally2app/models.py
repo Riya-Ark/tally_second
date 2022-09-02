@@ -60,3 +60,15 @@ class receipt(models.Model):
     amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
     amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
     vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
+class sales(models.Model):
+    no=models.IntegerField()   
+    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
+    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
+class journal(models.Model):
+    no=models.IntegerField()   
+    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
+    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
