@@ -16,22 +16,33 @@
       </div>
     </div>
     <div class="card radius-15">
-      <div class="card-body">
-        <div id="sales">
-          <div class="invoice overflow-auto">
-            <div class="row">
-              <div class="col">
-                <h2 style="text-align: left;">Sales</h2>
-                <h2 style="text-align: right;">Date:</h2>
-              </div>
-            </div>
+        <div class="card-body">
+          <div class="row mt-4">
+        <div class="col-md-4"><h2 style="text-align: left;">Sales</h2></div> 
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><h2 style="text-align: right;">1 april 2022 <br>friday </h2></div>
+      </div> 
             <div class="row mt-4">
                 <div class="table-responsive">
             
                   
-                  Party A/c Name  : <br>
+                  <b>Party A/c Name </b> :<select name='particulars' class="form-control">
+                              
+                    <option value=" " selected></option>
+                
+                    <option value=""></option>
+                    
+
+                  </select> <br>
                   Current balance: <br>
-                  Sales ledger:  <br>
+                  <b>Sales ledger:<select name='particulars' class="form-control">
+                              
+                    <option value=" " selected></option>
+                
+                    <option value=""></option>
+                    
+
+                  </select></b>  <br>
                   Current balance: <br>
                     <table class="table table-bordered table-hover" id="tab_logic">
                       <thead>
@@ -48,10 +59,33 @@
                       <tbody>
                         <tr>
                           
-                          <td>
-                            
-                            </select>
-                          </td>
+                            <td>
+                                <select name='particulars' class="form-control">
+                                
+                                  <option value=" " selected></option>
+                              
+                                  <option value=""></option>
+                                  
+          
+                                </select>
+                              </td>
+                          
+                          
+                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td></tr>
+                          <tr>
+                          
+                            <td>
+                                <select name='particulars' class="form-control">
+                                
+                                  <option value=" " selected></option>
+                              
+                                  <option value=""></option>
+                                  
+          
+                                </select>
+                              </td>
                           
                           
                           <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
@@ -63,7 +97,14 @@
                             
                           </div>
                           <div class="row mt-4">
-                            <div class="col-md-12">NARRATION: <input type="text" class="form-control" name="narration" width="100%"></div><br><br><br><br>
+                            <div class="col-md-9">
+                              
+                            NARRATION: 
+                            </div>
+                            
+                            <div class="col-md-3">
+                            <input type="text" class="form-control" name="narration" style="align-right" width="50%"></div><br><br><br><br>
+                              
                             <!--<div class="col-md-2">
                              
                             </div>-->

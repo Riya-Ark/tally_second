@@ -13,6 +13,8 @@ def sales(request):
     return render(request,'sales.html')
 def receipt(request):
     return render(request,'receipt.html')
+def receipt2(request):
+    return render(request,'receipt2.html')
 def journal(request):
     return render(request,'journal.html')
 def creditnote(request):
