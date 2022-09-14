@@ -29,22 +29,30 @@
                             </td>
                             </td>
                  <b>Party A/c number:<select name='particulars' class="form-control">
-                              
-                  <option value=" " selected></option>
+                  {% for led in led %}
+                
+                  <option value="{{led.id}} ">
+                    <li>{{led.name}}</li>
+                    {% endfor %}
+                  </option>
               
-                  <option value=""></option>
+                  <option> <li> <a href= ""> Create </a></li></option>
                   
 
                 </select> </b><br>
                  Current balance:<br>
-                 <b>Purchase ledger: <select name='particulars' class="form-control">
-                              
-                  <option value=" " selected></option>
+                 <b>Purchase ledger:<select name='particulars' class="form-control">
+                  {% for led in led %}
+                
+                  <option value="{{led.id}} ">
+                    <li>{{led.name}}</li>
+                    {% endfor %}
+                  </option>
               
-                  <option value=""></option>
+                  <option> <li> <a href= ""> Create </a></li></option>
                   
 
-                </select></b><br>
+                </select> </b><br>
                  Current balance:<br>
                 
                     <table class="table table-bordered table-hover" id="tab_logic">
@@ -68,12 +76,16 @@
                             
                             <td>
                               <select name='particulars' class="form-control">
+                                {% for led in led %}
                               
-                                <option value=" " selected></option>
+                                <option value="{{led.id}} ">
+                                  <li>{{led.name}}</li>
+                                  {% endfor %}
+                                </option>
                             
-                                <option value=""></option>
+                                <option> <li> <a href= ""> Create </a></li></option>
                                 
-        
+            
                               </select>
                             </td>
                           
@@ -87,12 +99,16 @@
                           
                           <td>
                             <select name='particulars' class="form-control">
+                              {% for led in led %}
                             
-                              <option value=" " selected></option>
+                              <option value="{{led.id}} ">
+                                <li>{{led.name}}</li>
+                                {% endfor %}
+                              </option>
                           
-                              <option value=""></option>
+                              <option> <li> <a href= ""> Create </a></li></option>
                               
-      
+          
                             </select>
                           </td>
                           <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>

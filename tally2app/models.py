@@ -54,21 +54,37 @@ class bank(models.Model):
     date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
     vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
    
-class receipt(models.Model):
-    no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
+# class receipt(models.Model):
+#     no=models.IntegerField()   
+#     date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
+#     amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+#     date=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+#     vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
 class sales(models.Model):
+   
+    no=models.IntegerField() 
+    partyname=models.CharField(max_length=225)
+    purchaseledger=models.CharField(max_length=225)
+    itemname=models.CharField(max_length=225)
+    quantity=models.IntegerField() 
+    rate=models.IntegerField() 
+  
+    
+class purchase(models.Model):
+    invoiceno=models.IntegerField() 
     no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
+    partyname=models.CharField(max_length=225)
+    purchaseledger=models.CharField(max_length=225)
+    itemname=models.CharField(max_length=225)
+    quantity=models.IntegerField() 
+    rate=models.IntegerField()
+
 class journal(models.Model):
-    no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
+    no=models.IntegerField()
+    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
+    debit=models.IntegerField()
+    credit=models.IntegerField()
+
+
+
+    

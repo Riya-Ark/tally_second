@@ -4,8 +4,8 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<form action="" method="POST" id="newform" class="post-form">
-
+<form action="{% url 'contra' %}" method="POST" id="newform" class="post-form">
+  {% csrf_token %}
   <div class="page-content">
     <div class="card radius-15">
       <div class="card-body">
@@ -20,9 +20,9 @@
     <div class="card radius-15">
       <div class="card-body">
         <div class="row mt-4">
-      <div class="col-md-4"><h2 style="text-align: left;">Contra</h2></div> 
+      <div class="col-md-4"><h2 style="text-align: left;">Contra No.{{con.no}} </h2></div> 
       <div class="col-md-4"></div>
-      <div class="col-md-4"><h2 style="text-align: right;">1 april 2022 <br>friday </h2></div>
+      <div class="col-md-4"><h2 style="text-align: right;">{{bak.date.date | date:"l"}}</h2></div>
     </div> 
         <div id="sales">
           <div class="invoice overflow-auto">
@@ -32,14 +32,20 @@
             <div class="row mt-4">
               <div class="col-md-1">Account: 
               </div>
-              <div class="col-md-2"><select name='particulars' class="form-control">
-                        
-                <option value=" " selected></option>
-            
-                <option value=""></option>
+              <div class="col-md-2">
+                <select name='particulars' class="form-control">
+                  {% for led in led %}
                 
+                  <option value="{{led.id}} ">
+                    <li>{{led.name}}</li>
+                    {% endfor %}
+                  </option>
+              
+                  <option> <li> <a href= ""> Create </a></li></option>
+                  
 
-              </select></div>
+                </select>
+              </div>
               <div class="col-md-9">
               </div><br><br><br><br>
               </div>
@@ -62,10 +68,14 @@
                         
                         <td>
                           <select name='particulars' class="form-control">
+                            {% for led in led %}
                           
-                            <option value=" " selected></option>
+                            <option value="{{led.id}} ">
+                              <li>{{led.name}}</li>
+                              {% endfor %}
+                            </option>
                         
-                            <option value=""></option>
+                            <option> <li> <a href= ""> Create </a></li></option>
                             
     
                           </select>
@@ -77,10 +87,14 @@
                         
                           <td>
                             <select name='particulars' class="form-control">
+                              {% for led in led %}
                             
-                              <option value=" " selected></option>
+                              <option value="{{led.id}} ">
+                                <li>{{led.name}}</li>
+                                {% endfor %}
+                              </option>
                           
-                              <option value=""></option>
+                              <option> <li> <a href= ""> Create </a></li></option>
                               
       
                             </select>
