@@ -1,3 +1,4 @@
+from audioop import ratecv
 from django.db import models
 
 # Create your models here.
@@ -32,18 +33,18 @@ class Particulars(models.Model):
 
 
 class contra(models.Model):
-    ledger=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
-    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
-    no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+       no=models.AutoField(primary_key=True)
+       particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
+       amount1=models.IntegerField()
+       amount2=models.IntegerField()
+       amount3=models.IntegerField()
 
 class payment(models.Model):
-    ledger=models.ForeignKey(ledger,on_delete=models.CASCADE,blank=False)
-    vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
-    no=models.IntegerField()   
-    date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
-    amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
+      no=models.AutoField(primary_key=True)
+      particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
+      amount1=models.IntegerField()
+      amount2=models.IntegerField()
+      amount3=models.IntegerField()
 
 class bank(models.Model):
     ledger=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
@@ -54,23 +55,30 @@ class bank(models.Model):
     date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
     vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
    
-# class receipt(models.Model):
-#     no=models.IntegerField()   
-#     date=models.ForeignKey(account,on_delete=models.CASCADE,null=True)
-#     amount=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-#     date=models.ForeignKey(Particulars,on_delete=models.CASCADE,null=True)
-#     vouchertype=models.ForeignKey(Vouchertype,on_delete=models.CASCADE,null=True)
+class receipt(models.Model):
+    no=models.AutoField(primary_key=True)
+    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
+    amount1=models.IntegerField()
+    amount2=models.IntegerField()
+    amount3=models.IntegerField()
 class sales(models.Model):
-   
-    no=models.IntegerField() 
-    partyname=models.CharField(max_length=225)
-    purchaseledger=models.CharField(max_length=225)
-    itemname=models.CharField(max_length=225)
-    quantity=models.IntegerField() 
-    rate=models.IntegerField() 
+       no=models.AutoField(primary_key=True)
+       particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
+       Partyname=models.CharField(max_length=255)
+       salesledger=models.CharField(max_length=255)
+       item=models.CharField(max_length=255)
+       rate=models.IntegerField()
+       quantity=models.IntegerField()
+       amount=models.IntegerField()
+       total_amount=models.IntegerField()
+       
+
+    
   
     
 class purchase(models.Model):
+    no=models.AutoField(primary_key=True)
+    particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
     invoiceno=models.IntegerField() 
     no=models.IntegerField()   
     partyname=models.CharField(max_length=225)
@@ -80,10 +88,13 @@ class purchase(models.Model):
     rate=models.IntegerField()
 
 class journal(models.Model):
+    no=models.AutoField(primary_key=True)
     no=models.IntegerField()
     particualrs=models.ForeignKey(ledger,on_delete=models.CASCADE,null=True)
     debit=models.IntegerField()
     credit=models.IntegerField()
+    debit1=models.IntegerField()
+    credit1=models.IntegerField()
 
 
 

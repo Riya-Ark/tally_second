@@ -4,8 +4,8 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<form action="" method="POST" class="post-form" id="newform">
-  
+<form action="{% url 'journal' %}" method="POST" class="post-form" id="newform">
+  {% csrf_token %}
   <div class="page-content">
     <div class="card radius-15">
       <div class="card-body">
@@ -21,7 +21,9 @@
         <div class="row mt-4">
       <div class="col-md-4"><h2 style="text-align: left;">Journal</h2></div> 
       <div class="col-md-4"></div>
-      <div class="col-md-4"><h2 style="text-align: right;">1 april 2022 <br>friday </h2></div>
+      <div class="col-md-4" ><h2 style="text-align: right;">today.toDateString()
+         <br>friday </h2></div>
+         
     </div> 
             <div class="row mt-4">
                 <div class="table-responsive">
@@ -47,34 +49,51 @@
                         
                         <td>
                           <select name='particulars' class="form-control">
-                           
-                            <option value=" " selected></option>
-                            
-                            <option value="{{ l.id }}"></option>
-                            
-    
-                          </select>
+                            {% for led in led %}
+                          
+                            <option value="{{led.id}} ">
+                              <li>{{led.name}}</li>
+                              {% endfor %}
+                            </option>
+                        
+                            <option> <li> <a href= ""> Create </a></li></option>
                         </td>
                         
                         
-                        <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
-                        <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td></tr>
+                        <td><input type="number" name='amount' id="amount1"  oninput="add()"  placeholder='0.00' class="form-control" /></td>
+                        <td><input type="number" name='amount' id="amount2" placeholder='0.00' class="form-control" /></td></tr>
                         <tr>
-                        
+                          
                           <td>
                             <select name='particulars' class="form-control">
-                             
-                              <option value=" " selected></option>
-                              
-                              <option value="{{ l.id }}"></option>
+                              {% for led in led %}
+                            
+                              <option value="{{led.id}} ">
+                                <li>{{led.name}}</li>
+                                {% endfor %}
+                              </option>
+                          
+                              <option> <li> <a href= ""> Create </a></li></option>
                               
       
                             </select>
+                            <script>
+                              var text1 = document.getElementById("amount1");
+  
+                              function add() {
+                               document.getElementById("amount4").value=text1.value;
+                               document.getElementById("deb").value=text1.value;
+                               document.getElementById("cred").value=text1.value;
+  
+                              }
+  
+                           </script>
                           </td>
                           
                           
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td></tr>
+                          <td><input type="number" name='amount' id="amount3"  placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount4" placeholder='0.00' class="form-control" /></td></tr>
+                          
                         </tbody></table><div class="row clearfix" style="margin-top:20px">
                           <div class="col-md-4"></div>
                           
@@ -82,9 +101,9 @@
                         <div class="row mt-4">
                           <div class="col-md-2">NARRATION: 
                           </div>
-                          <div class="col-md-5"> <input type="text" class="form-control" name="narration" width="50%">
+                          <div class="col-md-5"> <input type="text" class="form-control" id="deb" name="narration" width="50%">
                           </div>
-                          <div class="col-md-5"><input type="text" class="form-control" name="narration" width="50%"></div><br><br><br><br>
+                          <div class="col-md-5"><input type="text" class="form-control" id="cred" name="narration" width="50%"></div><br><br><br><br>
                           </div>
                           <!--<div class="col-md-2">
                            

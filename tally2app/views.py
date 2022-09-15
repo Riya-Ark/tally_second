@@ -10,9 +10,9 @@ def home(request):
     return render(request,'base.html')
 def payment(request):
     bak=bank.objects.all()
-    con=payment.objects.all()
+    # con=payment.objects.all()
     led=ledger.objects.all()
-    return render(request,'payment.html',{'bak':bak,'led':led,'con':con})
+    return render(request,'payment.html',{'bak':bak,'led':led})
     
 def contra(request):
     bak=bank.objects.all()
@@ -38,7 +38,10 @@ def receipt(request):
 def receipt2(request):
     return render(request,'receipt2.html')
 def journal(request):
-    return render(request,'journal.html')
+    bak=bank.objects.all()
+    # con=contra.objects.all()
+    led=ledger.objects.all()
+    return render(request,'journal.html',{'bak':bak,'led':led})
 def creditnote(request):
     return render(request,'creditnote.html')
 def debitnote1(request):

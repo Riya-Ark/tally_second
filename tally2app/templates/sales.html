@@ -4,7 +4,8 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<form action=" " method="POST" class="post-form">
+<form action=" {% url 'sales' %}" method="POST" class="post-form">
+  {% csrf_token %}
   <div class="page-content">
     <div class="card radius-15">
       <div class="card-body">
@@ -83,9 +84,21 @@
                               </td>
                           
                           
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td></tr>
+                          <td><input type="number" name='amount' id="amount1" oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount2" oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount3" oninput="add()" placeholder='0.00' class="form-control" /></td></tr>
+                          <script>
+                            var text1 = document.getElementById("amount1");
+                            var text2 = document.getElementById("amount2");
+                            function add_number() {
+                              var first_number = parseFloat(text1.value);
+                              if (isNaN(first_number)) first_number = 0;
+                               var second_number = parseFloat(text2.value);
+                              if (isNaN(second_number)) second_number = 0;
+                              var result1 = first_number * second_number;
+                              document.getElementById("amount3").value = result1;
+                            }
+                            </script>
                           <tr>
                           
                             <td>
@@ -104,14 +117,51 @@
                               </td>
                           
                           
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td></tr>
+                          <td><input type="number" name='amount' id="amount4"  oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount5"  oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount' id="amount6"  oninput="add()" placeholder='0.00' class="form-control" /></td></tr>
                           </tbody></table>
+                          <script>
+                            var text1 = document.getElementById("amount1");
+                            var text2 = document.getElementById("amount2");
+                            var text4 = document.getElementById("amount4");
+                            var text5 = document.getElementById("amount5");
+                            function add_numbernew() {
+                            var first_number = parseFloat(text4.value);
+                            if (isNaN(first_number)) first_number = 0;
+                            var second_number = parseFloat(text5.value);
+                            if (isNaN(second_number)) second_number = 0;
+                            var result = first_number * second_number;
+                            document.getElementById("amount6").value = result;
+                            var first_number1 = parseFloat(text1.value);
+                            if (isNaN(first_number1)) first_number1 = 0;
+                            var second_number2 = parseFloat(text2.value);
+                            if (isNaN(second_number2)) second_number2 = 0;
+                            var result1 = first_number1 * second_number2;
+                            document.getElementById("amount3").value = result1;
+                            var result3=result1+result
+                            document.getElementById("amount9").value = result3;
+
+                             
+                            }
+//                           </script>
                           <div class="row clearfix" style="margin-top:20px">
                             <div class="col-md-7"></div>
                             
                           </div>
+                          <script>
+                            var text9 = document.getElementById("amount3");
+                            var text8 = document.getElementById("amount6");
+                            function add() {
+                              var first_number = parseFloat(text9.value);
+                              
+                               var second_number = parseFloat(text8.value);
+                              
+                              var result2 = first_number + second_number;
+                              document.getElementById("amount9").value = result2;
+                            }
+                           
+                          </script>
                           <div class="row mt-4">
                             <div class="col-md-9">
                               
@@ -119,7 +169,7 @@
                             </div>
                             
                             <div class="col-md-3">
-                            <input type="text" class="form-control" name="narration" style="align-right" width="50%"></div><br><br><br><br>
+                            <input type="text" class="form-control" id="amount9" name="narration" style="align-right" width="50%"></div><br><br><br><br>
                               
                             <!--<div class="col-md-2">
                              

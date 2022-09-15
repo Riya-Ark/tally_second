@@ -20,9 +20,9 @@
     <div class="card radius-15">
       <div class="card-body">
         <div class="row mt-4">
-      <div class="col-md-4"><h2 style="text-align: left;">Payment No.{{con.no.no}} </h2></div> 
+      <div class="col-md-4"><h2 style="text-align: left;">Payment No. </h2></div> 
       <div class="col-md-4"></div>
-      <div class="col-md-4"><h2 style="text-align: right;">{{bak.date}}</h2></div>
+      <div class="col-md-4"><h2 style="text-align: right;">1 April 2022</h2></div>
     </div> 
         <div id="sales">
           <div class="invoice overflow-auto">
@@ -82,7 +82,7 @@
                         </td>
                         
                         
-                        <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" /></td></tr>
+                        <td><input type="number" name='amount' id="amount1" placeholder='0.00' oninput="add_number()" class="form-control" /></td></tr>
                         <tr>
                         
                           <td>
@@ -101,8 +101,20 @@
                           </td>
                           
                           
-                          <td><input type="number" name='amount' id="amount" placeholder='0.00' class="form-control" ></td>
-                          
+                          <td><input type="number" name='amount' id="amount2" onclick="doMath();" oninput="add_number()" placeholder='0.00' class="form-control" /></td>
+                          <script>
+                            var text1 = document.getElementById("amount1");
+                            var text2 = document.getElementById("amount2");
+                            function add_number() {
+                              var first_number = parseFloat(text1.value);
+                              if (isNaN(first_number)) first_number = 0;
+                               var second_number = parseFloat(text2.value);
+                              if (isNaN(second_number)) second_number = 0;
+                              var result = first_number + second_number;
+                              document.getElementById("amount3").value = result;
+}
+                          </script>
+                         
                        
                         </tbody></table><div class="row clearfix" style="margin-top:20px">
                           <div class="col-md-7"></div>
@@ -111,7 +123,7 @@
                         <div class="row mt-4">
                           <div class="col-md-4">NARRATION: 
                           </div>
-                          <div class="col-md-8"><input type="text" class="form-control" name="narration" width="100%"></div><br><br><br><br>
+                          <div class="col-md-8"><input type="text" class="form-control" id="amount3"name="narration" width="100%" onclick="doMath();" /></div><br><br><br><br>
                           </div>
                           <!--<div class="col-md-2">
                            
@@ -132,7 +144,7 @@
                         </div>-->
                       </div>
                     </div>
-                  </div>2
+                  </div>
                 </div>
               </div>
             </form>
@@ -140,5 +152,21 @@
                 function newFunction() {
             document.getElementById("newform").reset();
          }
+        
               </script>
+              <script type="text/javascript">
+                function doMath()
+                {
+                    // Capture the entered values of two input boxes
+                    var my_input1 = document.getElementById('amount1').value;
+                    var my_input2 = document.getElementById('amount2').value;
+
+            
+                    // Add them together and display
+                    var sum = parseInt(my_input1) + parseInt(my_input2);
+                    document.getElementbyId('amount3').innerHTML = sum;
+                    
+                }
+            
+                </script>
 {% endblock %}
