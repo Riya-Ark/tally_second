@@ -12,7 +12,7 @@ urlpatterns = [
     path('creditnote',views.creditnote,name='creditnote'),
     path('debitnote1',views.debitnote1,name='debitnote1'),
     # path('editcontra',views.editcontra,name='editcontra'),
-    path('editpayment/<int:pk>',views.editpayment,name='editpayment'),
+    path('editpayment/<int:id>',views.editpayment,name='editpayment'),
     path('createvoucher1',views.createvoucher1,name='createvoucher1'),
     
     

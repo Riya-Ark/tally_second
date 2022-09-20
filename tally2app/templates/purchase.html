@@ -26,7 +26,7 @@
             <div class="row mt-4">
                 <div class="table-responsive">
             
-                 <b>Supplier Invoice number:<input type="number" name="number"></b> <b> Date:<input type="date" name="date"></h2></b> <br>  
+                 <b>Supplier Invoice number:<input type="number" name="invoiceno"></b> <b> Date:<input type="date" name="date"></h2></b> <br>  
                             </td>
                             </td>
                  <b>Party A/c number:<select name='particulars' class="form-control">
@@ -42,7 +42,7 @@
 
                 </select> </b><br>
                  Current balance:<br>
-                 <b>Purchase ledger:<select name='particulars' class="form-control">
+                 Purchase ledger:<select name='particulars' class="form-control">
                   {% for led in led %}
                 
                   <option value="{{led.id}} ">
@@ -90,10 +90,10 @@
                               </select>
                             </td>
                           
-                          <td><input type="number" name='amount' id="amount1"   oninput="add_number()" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount2"  oninput="add_number()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='itemname' id="amount1"   oninput="add_number()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='quantity' id="amount2"  oninput="add_number()" placeholder='0.00' class="form-control" /></td>
                           
-                          <td><input type="number" name='amount' id="amount3" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='rate' id="amount3" placeholder='0.00' class="form-control" /></td>
                           
                         </tr>
                         <script>
@@ -124,8 +124,8 @@
           
                             </select>
                           </td>
-                          <td><input type="number" name='amount' id="amount4"  oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
-                          <td><input type="number" name='amount' id="amount5"  oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='quantity' id="amount4"  oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='rate' id="amount5"  oninput="add_numbernew()" placeholder='0.00' class="form-control" /></td>
                           
                           <td><input type="number" name='amount' id="amount6"  oninput="add" placeholder='0.00' class="form-control" /></td>
                           
@@ -180,7 +180,7 @@
                             </div>
                             
                             <div class="col-md-3">
-                            <input type="text" class="form-control"  id="amount9"  oninput="add" name="narration" style="align-right" width="50%"></div><br><br><br><br>
+                            <input type="text" class="form-control" name="total_amount" id="amount9"  oninput="add" name="narration" style="align-right" width="50%"></div><br><br><br><br>
                               
                               <!--<div class="col-md-2">
                                

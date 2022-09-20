@@ -20,7 +20,7 @@
     <div class="card radius-15">
       <div class="card-body">
         <div class="row mt-4">
-      <div class="col-md-4"><h2 style="text-align: left;">Payment No. </h2></div> 
+      <div class="col-md-4"><h2 style="text-align: left;">Payment No.{{a}} </h2></div> 
       <div class="col-md-4"></div>
       <div class="col-md-4"><h2 style="text-align: right;">1 April 2022</h2></div>
     </div> 
@@ -33,7 +33,7 @@
               <div class="col-md-1">Account: 
               </div>
               <div class="col-md-2">
-                <select name='particulars' class="form-control">
+                <select name='particualrs' class="form-control">
                   {% for led in led %}
                 
                   <option value="{{led.id}} ">
@@ -67,7 +67,7 @@
                       <tr>
                         
                         <td>
-                          <select name='particulars' class="form-control">
+                          <select name='particualrs' class="form-control">
                             {% for led in led %}
                           
                             <option value="{{led.id}} ">
@@ -82,7 +82,7 @@
                         </td>
                         
                         
-                        <td><input type="number" name='amount' id="amount1" placeholder='0.00' oninput="add_number()" class="form-control" /></td></tr>
+                        <td><input type="number" name='amount1' id="amount1" placeholder='0.00' oninput="add_number()" class="form-control" /></td></tr>
                         <tr>
                         
                           <td>
@@ -101,7 +101,7 @@
                           </td>
                           
                           
-                          <td><input type="number" name='amount' id="amount2" onclick="doMath();" oninput="add_number()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount1' id="amount2" onclick="doMath();" oninput="add_number()" placeholder='0.00' class="form-control" /></td>
                           <script>
                             var text1 = document.getElementById("amount1");
                             var text2 = document.getElementById("amount2");
@@ -123,7 +123,7 @@
                         <div class="row mt-4">
                           <div class="col-md-4">NARRATION: 
                           </div>
-                          <div class="col-md-8"><input type="text" class="form-control" id="amount3"name="narration" width="100%" onclick="doMath();" /></div><br><br><br><br>
+                          <div class="col-md-8"><input type="text" class="form-control" name="amount3" id="amount3"name="narration" width="100%" onclick="doMath();" /></div><br><br><br><br>
                           </div>
                           <!--<div class="col-md-2">
                            

@@ -33,7 +33,7 @@
               <div class="col-md-1">Account: 
               </div>
               <div class="col-md-2">
-                <select name='particulars' class="form-control">
+                <select name='particualrs' class="form-control">
                   {% for led in led %}
                 
                   <option value="{{led.id}} ">
@@ -67,7 +67,7 @@
                       <tr>
                         
                         <td>
-                          <select name='particulars' class="form-control">
+                          <select name='particualrs' class="form-control">
                             {% for led in led %}
                           
                             <option value="{{led.id}} ">
@@ -86,7 +86,7 @@
                         <tr>
                         
                           <td>
-                            <select name='particulars' class="form-control">
+                            <select name='particualrs' class="form-control">
                               {% for led in led %}
                             
                               <option value="{{led.id}} ">
@@ -101,7 +101,7 @@
                           </td>
                           
                           
-                          <td><input type="number" name='amount2' id="amount2" onclick="doMath();" oninput="add_number()" placeholder='0.00' class="form-control" /></td>
+                          <td><input type="number" name='amount1' id="amount2" onclick="doMath();" oninput="add_number()" placeholder='0.00' class="form-control" /></td>
                           <script>
                             var text1 = document.getElementById("amount1");
                             var text2 = document.getElementById("amount2");

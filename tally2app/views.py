@@ -8,11 +8,15 @@ from .models import  *
 # Create your views here.
 def home(request):
     return render(request,'base.html')
+# def ledgercreation():
+#     return render(request,'ledgercreation.html')
+
 def payment(request):
     bak=bank.objects.all()
-    # con=payment.objects.all()
+    con=payment.objects.all().latest('no')
+    a=con.no+1
     led=ledger.objects.all()
-    return render(request,'payment.html',{'bak':bak,'led':led})
+    return render(request,'payment.html',{'bak':bak,'led':led,'con':con,'a':a})
     
 def contra(request):
     bak=bank.objects.all()
