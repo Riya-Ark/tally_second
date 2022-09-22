@@ -4,7 +4,7 @@
 
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
-<form action="{% url 'contra' %}" method="POST" id="newform" class="post-form">
+<form action="{% url 'Contra' %}" method="POST" id="newform" class="post-form">
   {% csrf_token %}
   <div class="page-content">
     <div class="card radius-15">
@@ -30,10 +30,9 @@
              
             </div>
             <div class="row mt-4">
-              <div class="col-md-1">Account: 
-              </div>
-              <div class="col-md-2">
-                <select name='particualrs' class="form-control">
+              <div class="col-md-1">Account:
+                    <div class="col-md-2">
+                <select  onclick="getElementById('demo').innerHTML= {{led.balance}}"name='particualrs' class="form-control">
                   {% for led in led %}
                 
                   <option value="{{led.id}} ">
@@ -45,6 +44,7 @@
                   
 
                 </select>
+                <h6 id="demo"><i>Current balance:</i></h6>
               </div>
               <div class="col-md-9">
               </div><br><br><br><br>

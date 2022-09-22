@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'tally2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tallnew',
+        'NAME': 'tall',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

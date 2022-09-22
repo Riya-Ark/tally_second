@@ -1,4 +1,5 @@
 from audioop import ratecv
+from codecs import BufferedIncrementalEncoder
 from django.db import models
 
 # Create your models here.
@@ -15,6 +16,8 @@ class groups(models.Model):
 class ledger(models.Model):
     group=models.ForeignKey(groups,on_delete=models.CASCADE,null=True)
     name=models.CharField(max_length=225)
+    balance=models.IntegerField()
+    types=models.CharField(max_length=10)
     
     def __str__(self):
      return self.name

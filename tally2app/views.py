@@ -11,16 +11,17 @@ def home(request):
 # def ledgercreation():
 #     return render(request,'ledgercreation.html')
 
-def payment(request):
+def Payment(request):
+    
     bak=bank.objects.all()
-    con=payment.objects.all().latest('no')
+    con=payment.objects.all()
     a=con.no+1
     led=ledger.objects.all()
     return render(request,'payment.html',{'bak':bak,'led':led,'con':con,'a':a})
     
-def contra(request):
+def Contra(request):
     bak=bank.objects.all()
-    # con=contra.objects.all()
+    con=contra.objects.all()
     led=ledger.objects.all()
     return render(request,'contra.html',{'bak':bak,'led':led})
 
@@ -34,14 +35,14 @@ def sales(request):
     # con=contra.objects.all()
     led=ledger.objects.all()
     return render(request,'sales.html',{'bak':bak,'led':led})
-def receipt(request):
+def Receipt(request):
     bak=bank.objects.all()
-    # con=contra.objects.all()
+    re=receipt.objects.all()
     led=ledger.objects.all()
-    return render(request,'receipt.html',{'bak':bak,'led':led})
+    return render(request,'receipt.html',{'bak':bak,'led':led,'re':re})
 def receipt2(request):
     return render(request,'receipt2.html')
-def journal(request):
+def Journal(request):
     bak=bank.objects.all()
     # con=contra.objects.all()
     led=ledger.objects.all()
